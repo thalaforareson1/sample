@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #captcha {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                const captchaInput = document.getElementById('captchaInput').value;
+                if (captchaInput !== '4') {
+                    alert('Captcha incorrect. Please try again.');
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Contact Form</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cv.html">CVs</a>
+            <a href="form.html">Contact</a>
+        </nav>
+    </header>
+    <div class="container">
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <!-- Add more form fields as needed -->
+            <div id="captcha">
+                <label for="captchaInput">Prove you are not a robot: What is 2 + 2?</label>
+                <input type="text" id="captchaInput" name="captchaInput" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
